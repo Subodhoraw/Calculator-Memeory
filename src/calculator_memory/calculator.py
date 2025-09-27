@@ -57,7 +57,7 @@ class Calculator:
                result = num ** 0.5
                self.history.append(f"Square root of {num} = {result}")
         else:
-            num ** 0.5:
+            num ** 0.5
             self.history.append(f"Square root of {num} = {result}")
         return result
     
