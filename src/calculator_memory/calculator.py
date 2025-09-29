@@ -50,14 +50,44 @@ class Calculator:
             result = (num1 + num2) / 2
             self.history.append(f"Average of {num1} and {num2} = {result}")
         return result
-    def square_root(self, num):
+    def square_root(self, num = None):
         if num is None:
                if self.memory < 0:
                    return "Error! square root of negative number."
-               result = num ** 0.5
+               result = self.memory ** 0.5
                self.history.append(f"Square root of {num} = {result}")
         else:
-            num ** 0.5
+            if num < 0:
+               return "Error! square root of negative number."
+            results = num ** 0.5
             self.history.append(f"Square root of {num} = {result}")
         return result
+    def store_in_memory(self,value):
+        """Store a value in memory."""
+        self.memory = value
+        self.history.append(f"Stored {value} in memory.")
+    def recall_memory(self):
+        """Recall the value from memory."""
+        self.history.append(f"Recalled {self.memory} from memory.")
+        return self.memory
+    def clear_memory(self):
+        """Clear the memory."""
+        self.memory = 0
+        self.history.append("Cleared memory.")  
+    def add_to_memory(self,value):
+        """Add a value to the memory."""
+        self.memory += value
+        self.history.append(f"Added {value} to memory. New memory: {self.memory}")
+    def subtract_from_memory(self,value):
+        """Subtract a value from the memory."""
+        self.memory -= value
+        self.history.append(f"subtracted{value} from memory= {self.memory}")
+    def get_history(self):
+        """Get the history of calculations."""
+        return self.history
+    def clear_history(self):
+        """ Clear the calculation history."""
+        self.history.clear()
+    
+    
     
